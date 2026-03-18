@@ -936,3 +936,8 @@ footer {
     padding-top: 100px;
   }
 }
+
+body {
+  padding-top: 20px;
+  /* navbar height */
+}
