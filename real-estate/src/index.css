@@ -344,8 +344,17 @@ html {
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(1.4); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
 }
 
 /* Hero Title */
@@ -919,5 +928,11 @@ footer {
 
   .feedback-card {
     min-width: 240px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 100px;
   }
 }
