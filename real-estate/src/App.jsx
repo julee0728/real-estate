@@ -87,20 +87,65 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="hero">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h1>Find Your Perfect Dream Home</h1>
-          <p>Discover the best luxury properties and investment opportunities with EstateHub. Your journey to a new lifestyle starts here.</p>
+        <div className="hero-inner">
+          {/* Trust Badge */}
+          <div className="hero-badge">
+            <span className="hero-badge-dot"></span>
+            🏆 Australia's Most Trusted Real Estate Agency
+          </div>
+
+          <h1 className="hero-title">
+            Find Your Perfect <br />
+            <span className="hero-highlight">Dream Home</span>
+          </h1>
+
+          <p className="hero-subtitle">
+            With over 15 years of excellence, EstateHub has helped <strong>50,000+ families</strong> across 
+            Australia discover their dream properties. From luxury villas to smart city apartments — 
+            we make your real estate journey seamless, trusted, and rewarding.
+          </p>
+
+          {/* Stats Row */}
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat-num">50K+</span>
+              <span className="hero-stat-label">Happy Clients</span>
+            </div>
+            <div className="hero-stat-divider"></div>
+            <div className="hero-stat">
+              <span className="hero-stat-num">12K+</span>
+              <span className="hero-stat-label">Properties Sold</span>
+            </div>
+            <div className="hero-stat-divider"></div>
+            <div className="hero-stat">
+              <span className="hero-stat-num">15+</span>
+              <span className="hero-stat-label">Years Experience</span>
+            </div>
+            <div className="hero-stat-divider"></div>
+            <div className="hero-stat">
+              <span className="hero-stat-num">4.9★</span>
+              <span className="hero-stat-label">Customer Rating</span>
+            </div>
+          </div>
+
           <div className="hero-btns">
-            <button 
+            <button
               onClick={() => scrollToSection('properties', true)}
               className="hero-btn-primary">
-              Explore Properties
+              🏘️ Explore Properties
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
               className="hero-btn-secondary">
-              Learn More
+              Learn More →
             </button>
+          </div>
+
+          {/* Trust Icons */}
+          <div className="hero-trust">
+            <span>✅ No Hidden Fees</span>
+            <span>✅ Verified Properties</span>
+            <span>✅ Expert Agents</span>
           </div>
         </div>
       </section>
