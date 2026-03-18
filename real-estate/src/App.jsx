@@ -3,9 +3,14 @@ import './index.css';
 
 function App() {
   const [showAll, setShowAll] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   const scrollToSection = (id, showMore = false) => {
     if (showMore) setShowAll(true);
+    closeMenu();
     const element = document.getElementById(id);
     if (element) {
       const offset = 80; // height of fixed navbar
@@ -33,36 +38,67 @@ function App() {
     <div className="app">
       {/* Navbar */}
       <nav className="navbar">
-        <div className="logo cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+        <div className="logo cursor-pointer" onClick={() => { window.scrollTo(0, 0); closeMenu(); }}>
           <span style={{ fontSize: '2rem' }}>🏡</span> EstateHub
         </div>
+
+        {/* Desktop Nav Links */}
         <div className="nav-links">
           <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a>
           <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a>
           <a href="#properties" onClick={(e) => { e.preventDefault(); scrollToSection('properties'); }}>Properties</a>
           <a href="#feedback" onClick={(e) => { e.preventDefault(); scrollToSection('feedback'); }}>Feedback</a>
         </div>
+
         <div className="nav-right">
-          <div className="btn-feedback" onClick={() => scrollToSection('contact')}>
+          <div className="btn-feedback desktop-contact" onClick={() => scrollToSection('contact')}>
             Contact
           </div>
+          {/* Hamburger Button */}
+          <button
+            className={`hamburger ${menuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Overlay */}
+      {menuOpen && <div className="nav-overlay" onClick={closeMenu}></div>}
+
+      {/* Mobile Drawer Menu */}
+      <div className={`mobile-menu ${menuOpen ? 'mobile-menu--open' : ''}`}>
+        <div className="mobile-menu-header">
+          <span style={{ fontSize: '1.8rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>🏡 EstateHub</span>
+        </div>
+        <nav className="mobile-nav-links">
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>🏠 Home</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>ℹ️ About</a>
+          <a href="#properties" onClick={(e) => { e.preventDefault(); scrollToSection('properties'); }}>🏘️ Properties</a>
+          <a href="#feedback" onClick={(e) => { e.preventDefault(); scrollToSection('feedback'); }}>💬 Feedback</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="mobile-contact-btn">📞 Contact Us</a>
+        </nav>
+      </div>
 
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="container" style={{ textAlign: 'center' }}>
           <h1>Find Your Perfect Dream Home</h1>
           <p>Discover the best luxury properties and investment opportunities with EstateHub. Your journey to a new lifestyle starts here.</p>
-          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
+          <div className="hero-btns">
             <button 
               onClick={() => scrollToSection('properties', true)}
-              style={{ padding: '15px 35px', background: '#2563eb', color: 'white', border: 'none', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer', fontSize: '1.1rem' }}>
+              className="hero-btn-primary">
               Explore Properties
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              style={{ padding: '15px 35px', background: 'transparent', color: 'white', border: '2px solid white', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer', fontSize: '1.1rem', backdropFilter: 'blur(5px)' }}>
+              className="hero-btn-secondary">
               Learn More
             </button>
           </div>
