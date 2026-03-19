@@ -328,7 +328,7 @@ html {
   color: #93c5fd;
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 8px 20px;
+  padding: 20px 20px;
   border-radius: 50px;
   margin-bottom: 28px;
   letter-spacing: 0.3px;
@@ -695,6 +695,14 @@ footer {
   text-align: center;
   opacity: 0.6;
   font-size: 0.87rem;
+}
+
+.footer-top>div:first-child p {
+  text-align: left;
+}
+
+.footer-logo {
+  text-align: left;
 }
 
 /* ============================
