@@ -1183,7 +1183,7 @@ body {
 .about h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 55px;
+  margin-bottom: 40px;
   /* 👈 yaha se space control hoga */
   line-height: 1.3;
 }
@@ -1191,4 +1191,96 @@ body {
 /* Extra spacing between heading and content */
 .about-content {
   margin-top: 10px;
+}
+
+/* ===== DEFAULT (Desktop) ===== */
+.about-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+/* ===== DESKTOP LAYOUT ===== */
+@media (min-width: 768px) {
+  .about {
+    flex-direction: column;
+    /* 👈 heading upar aa jayegi */
+    align-items: center;
+  }
+
+  .about .container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ===== MOBILE (unchanged jaisa abhi hai) ===== */
+@media (max-width: 767px) {
+  .about-title {
+    text-align: left;
+    /* 👈 mobile pe left hi rahega */
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+}
+
+/* ===== GLOBAL SECTION PADDING REDUCE ===== */
+section {
+  padding: 60px 5%;
+  /* pehle 80px tha */
+}
+
+/* ===== HERO GAP FIX ===== */
+.hero {
+  padding-bottom: 20px;
+  /* 👈 main fix */
+}
+
+/* ===== ABOUT TOP GAP FIX ===== */
+.about {
+  padding-top: 30px;
+  /* 👈 upar ka gap kam */
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 40px 4%;
+  }
+
+  .hero {
+    padding-bottom: 10px;
+  }
+
+  .about {
+    padding-top: 20px;
+  }
+}
+
+/* ===== HEADING GAP FIX ===== */
+.about-title {
+  margin-bottom: 20px;
+  /* pehle 40px tha → ab kam */
+}
+
+/* ===== IMAGE + CONTENT GAP ===== */
+.about .container {
+  gap: 30px;
+  /* pehle 50-60px tha → ab compact */
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    margin-bottom: 10px;
+  }
+
+  .about .container {
+    gap: 20px;
+  }
+}
+
+.about-title {
+  margin-bottom: 5px;
 }

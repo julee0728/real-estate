@@ -144,37 +144,27 @@ function App() {
 
       {/* About Section */}
       <section id="about" className="about">
+
+        {/* ✅ HEADING alag rakho */}
+        <h2 className="about-title">
+          Your Trusted Real Estate Partner
+        </h2>
+
         <div
           className="container"
           style={{
             display: 'flex',
-            gap: '60px',
+            gap: '50px',
             alignItems: 'flex-start',
             flexWrap: 'wrap',
-            justifyContent: 'center',
-            position: 'relative', // heading ko absolutely center karne ke liye
+            justifyContent: 'center'
           }}
         >
-          {/* HEADING — IMAGE + TEXT ke upar center */}
-          <h2
-            style={{
-              position: 'absolute',
-              top: '-60px', // upar margin adjust karo
-              left: '50%',
-              transform: 'translateX(-50%)',
-              textAlign: 'center',
-              fontSize: '2.8rem',
-              width: '100%',
-              zIndex: 10,
-            }}
-          >
-            Your Trusted Real Estate Partner
-          </h2>
 
           {/* IMAGE */}
           <div
             className="about-image"
-            style={{ flex: '1.3', minWidth: '450px', height: '550px' }}
+            style={{ flex: '1.3', minWidth: '300px', height: '500px' }}
           >
             <img
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
@@ -240,6 +230,113 @@ function App() {
                 Contact Our Agents
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Properties Section */}
+      <section id="properties" className="properties">
+        <div className="container">
+          <h2 className="section-title">Featured Properties</h2>
+          <div className="properties-grid">
+            {[
+              {
+                id: 1,
+                title: "Luxury Waterfront Villa",
+                price: "$2,500,000",
+                location: "Point Piper, Sydney",
+                image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop",
+                beds: 5,
+                baths: 4,
+                sqft: "4,200"
+              },
+              {
+                id: 2,
+                title: "Modern Skyline Apartment",
+                price: "$1,150,000",
+                location: "Southbank, Melbourne",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2070&auto=format&fit=crop",
+                beds: 3,
+                baths: 2,
+                sqft: "1,550"
+              },
+              {
+                id: 3,
+                title: "Coastal Breeze Cottage",
+                price: "$1,850,000",
+                location: "Surfers Paradise, Gold Coast",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+                beds: 4,
+                baths: 3,
+                sqft: "2,800"
+              },
+              {
+                id: 4,
+                title: "Grand Victorian Estate",
+                price: "$3,200,000",
+                location: "Toorak, Victoria",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+                beds: 6,
+                baths: 5,
+                sqft: "5,500"
+              },
+              {
+                id: 5,
+                title: "Smart Urban Penthouse",
+                price: "$2,100,000",
+                location: "Fortitude Valley, Brisbane",
+                image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+                beds: 3,
+                baths: 3,
+                sqft: "2,200"
+              },
+              {
+                id: 6,
+                title: "Tranquil Garden House",
+                price: "$980,000",
+                location: "Stirling, Adelaide",
+                image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1965&auto=format&fit=crop",
+                beds: 4,
+                baths: 2,
+                sqft: "2,100"
+              }
+            ].slice(0, showAll ? 6 : 3).map((prop) => (
+              <div key={prop.id} className="prop-card">
+                <div
+                  className="prop-img"
+                  style={{ backgroundImage: `url(${prop.image})` }}
+                ></div>
+                <div className="prop-info">
+                  <div className="prop-price">{prop.price}</div>
+                  <h3 style={{ fontSize: '1.2rem', margin: '5px 0' }}>{prop.title}</h3>
+                  <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '15px' }}>
+                    📍 {prop.location}
+                  </p>
+                  <div style={{
+                    display: 'flex',
+                    gap: '15px',
+                    fontSize: '0.85rem',
+                    fontWeight: '600',
+                    color: '#475569',
+                    borderTop: '1px solid #f1f5f9',
+                    paddingTop: '15px'
+                  }}>
+                    <span>🛏️ {prop.beds} Beds</span>
+                    <span>🚿 {prop.baths} Baths</span>
+                    <span>📏 {prop.sqft} sqft</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <button
+              className="btn-view-all"
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? 'Show Less' : 'View All Properties'}
+            </button>
           </div>
         </div>
       </section>
