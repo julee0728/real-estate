@@ -90,7 +90,6 @@ function App() {
         <div className="hero-inner">
           {/* Trust Badge */}
           <div className="hero-badge">
-            <span className="hero-badge-dot"></span>
             🏆 Australia's Most Trusted Real Estate Agency
           </div>
 
@@ -145,124 +144,105 @@ function App() {
 
       {/* About Section */}
       <section id="about" className="about">
-        <div className="container" style={{ display: 'flex', gap: '60px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div className="about-image" style={{ flex: '1', minWidth: '350px' }}>
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="About Real Estate" />
+        <div
+          className="container"
+          style={{
+            display: 'flex',
+            gap: '60px',
+            alignItems: 'flex-start',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            position: 'relative', // heading ko absolutely center karne ke liye
+          }}
+        >
+          {/* HEADING — IMAGE + TEXT ke upar center */}
+          <h2
+            style={{
+              position: 'absolute',
+              top: '-60px', // upar margin adjust karo
+              left: '50%',
+              transform: 'translateX(-50%)',
+              textAlign: 'center',
+              fontSize: '2.8rem',
+              width: '100%',
+              zIndex: 10,
+            }}
+          >
+            Your Trusted Real Estate Partner
+          </h2>
+
+          {/* IMAGE */}
+          <div
+            className="about-image"
+            style={{ flex: '1.3', minWidth: '450px', height: '550px' }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
+              alt="About Real Estate"
+            />
           </div>
-          <div className="about-content" style={{ flex: '1', minWidth: '350px' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Your Trusted Real Estate Partner</h2>
-            <p style={{ color: '#444', fontSize: '1.1rem', marginBottom: '25px' }}>
-              With over 3 years of experience in the luxury real estate market, we pride ourselves on delivering exclusive properties and personalized service to our global clientele.
-            </p>
-            <div className="working-hours">
-              <h4>🕒 Working Hours</h4>
-              <p style={{ fontWeight: '600', color: '#111' }}>Mon - Fri : 9am - 5pm</p>
+
+          {/* CONTENT */}
+          <div
+            className="about-content"
+            style={{ flex: '1', minWidth: '350px' }}
+          >
+            <div className="about-text">
+              <div className="about-card">
+                <p>
+                  🏠 <strong>Heritage of Excellence:</strong> With over 3 years of experience in the luxury real estate market, we specialize in delivering exclusive, high-end properties tailored to the unique needs of our clients.
+                </p>
+              </div>
+              <div className="about-card">
+                <p>
+                  🤝 <strong>Trusted Relationships:</strong> We build long-term relationships with clients through transparent communication and smart investment insights.
+                </p>
+              </div>
+              <div className="about-card">
+                <p>
+                  ✨ <strong>Visionary Approach:</strong> We help clients discover spaces that match their lifestyle and aspirations.
+                </p>
+              </div>
             </div>
-            <div style={{ marginTop: '30px' }}>
+
+            {/* WORKING HOURS + BUTTON IN ROW */}
+            <div
+              className="working-hours-contact"
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '20px',
+                marginTop: '30px',
+              }}
+            >
+              {/* Working Hours */}
+              <div className="working-hours">
+                <h4>🕒 Working Hours</h4>
+                <p style={{ fontWeight: '600', color: '#111', margin: 0 }}>
+                  Mon - Fri : 9am - 5pm
+                </p>
+              </div>
+
+              {/* Contact Button */}
               <button
                 onClick={() => scrollToSection('contact')}
-                style={{ padding: '12px 25px', background: '#0f172a', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>
+                style={{
+                  padding: '12px 25px',
+                  background: '#0f172a',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                }}
+              >
                 Contact Our Agents
               </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Properties Section */}
-      <section id="properties" style={{ background: '#f1f5f9' }}>
-        <div className="container">
-          <h2 className="section-title">Featured Properties</h2>
-
-          <div className="properties-grid">
-            {[
-              { id: 1, title: "Sydney Harbour Luxury Villa", price: "$4,200,000", location: "Sydney, Australia", beds: 5, baths: 4, area: "3,500 sqft", img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop" },
-
-              { id: 2, title: "Melbourne Modern Penthouse", price: "$2,100,000", location: "Melbourne, Australia", beds: 3, baths: 3, area: "2,300 sqft", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" },
-
-              { id: 3, title: "Brisbane Riverfront Estate", price: "$3,000,000", location: "Brisbane, Australia", beds: 6, baths: 5, area: "4,200 sqft", img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=2092&auto=format&fit=crop" },
-
-              { id: 4, title: "Perth Skyline Loft", price: "$1,300,000", location: "Perth, Australia", beds: 2, baths: 2, area: "1,700 sqft", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2080&auto=format&fit=crop" },
-
-              { id: 5, title: "Adelaide Garden Residence", price: "$950,000", location: "Adelaide, Australia", beds: 4, baths: 3, area: "2,200 sqft", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" },
-
-              { id: 6, title: "Gold Coast Beachfront Retreat", price: "$2,500,000", location: "Gold Coast, Australia", beds: 5, baths: 4, area: "3,600 sqft", img: "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?q=80&w=2073&auto=format&fit=crop" },
-
-              { id: 7, title: "Canberra Luxury Manor", price: "$3,800,000", location: "Canberra, Australia", beds: 7, baths: 6, area: "5,800 sqft", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" },
-
-              { id: 8, title: "Hobart Alpine View Chalet", price: "$1,900,000", location: "Hobart, Australia", beds: 4, baths: 4, area: "3,000 sqft", img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2065&auto=format&fit=crop" },
-
-              { id: 9, title: "Darwin Coastal Breeze Villa", price: "$2,700,000", location: "Darwin, Australia", beds: 5, baths: 4, area: "3,800 sqft", img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2074&auto=format&fit=crop" },
-
-              { id: 10, title: "Sunshine Coast Smart Home", price: "$3,200,000", location: "Sunshine Coast, Australia", beds: 5, baths: 4, area: "4,000 sqft", img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=2074&auto=format&fit=crop" }
-            ]
-              .slice(0, showAll ? 10 : 3)
-              .map(prop => (
-                <div key={prop.id} className="prop-card">
-                  <div
-                    className="prop-img"
-                    style={{ backgroundImage: `url('${prop.img}')` }}
-                  ></div>
-
-                  <div className="prop-info">
-                    <div className="prop-price">{prop.price}</div>
-                    <h3>{prop.title}</h3>
-
-                    <p style={{ color: '#666', marginTop: '10px' }}>
-                      {prop.location}
-                    </p>
-
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: '15px',
-                        marginTop: '15px',
-                        fontSize: '0.9rem',
-                        color: '#444'
-                      }}
-                    >
-                      <span>🛏️ {prop.beds} Beds</span>
-                      <span>🚿 {prop.baths} Baths</span>
-                      <span>📐 {prop.area}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <button
-              className="btn-view-all"
-              onClick={() => setShowAll(!showAll)}
-            >
-              {showAll ? 'Show Less' : 'View All Properties'}
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Feedback Marquee Section */}
-      {/* <section id="feedback" className="feedback-section">
-        <h2 className="section-title">What Our Clients Say</h2>
-        <div className="marquee-wrapper">
-          <div className="marquee-container">
-            
-            {[...feedbacks, ...feedbacks].map((fb, idx) => (
-              <div key={idx} className="feedback-card">
-                <div className="user">
-                  <div className="avatar"></div>
-                  <div>
-                    <h4 style={{ margin: 0 }}>{fb.name}</h4>
-                    <p style={{ fontSize: '0.8rem', opacity: 0.6, margin: 0 }}>{fb.role}</p>
-                  </div>
-                </div>
-                <p style={{ fontSize: '1.1rem', fontStyle: 'italic', lineHeight: '1.6' }}>"{fb.text}"</p>
-                <div style={{ marginTop: '15px', color: '#f59e0b' }}>⭐⭐⭐⭐⭐</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       <section id="feedback" className="feedback-section">
 
