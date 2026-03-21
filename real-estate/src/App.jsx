@@ -56,7 +56,7 @@ function App() {
     elements.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [showAll]);
 
   return (
     <div className="app">
@@ -113,23 +113,23 @@ function App() {
       <section id="home" className="hero">
         <div className="hero-inner">
           {/* Trust Badge */}
-          <div className="hero-badge reveal">
+          <div className="hero-badge">
             🏆 Australia's Most Trusted Real Estate Agency
           </div>
 
-          <h1 className="hero-title reveal">
+          <h1 className="hero-title">
             Find Your Perfect <br />
             <span className="hero-highlight">Dream Home</span>
           </h1>
 
-          <p className="hero-subtitle reveal">
+          <p className="hero-subtitle">
             With over 3 years of excellence, EstateHub has helped <strong>500+ families</strong> across
             Australia discover their dream properties. From luxury villas to smart city apartments —
             we make your real estate journey seamless, trusted, and rewarding.
           </p>
 
           {/* Stats Row */}
-          <div className="hero-stats reveal">
+          <div className="hero-stats">
             <div className="hero-stat">
               <span className="hero-stat-num">150+</span>
               <span className="hero-stat-label">Happy Clients</span>
@@ -151,7 +151,7 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-btns reveal">
+          <div className="hero-btns">
             <button
               onClick={() => scrollToSection('properties', true)}
               className="hero-btn-primary">
