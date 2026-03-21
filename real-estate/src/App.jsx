@@ -34,6 +34,30 @@ function App() {
     { name: "Robert Miller", text: "Highly recommend for anyone looking for luxury properties.", role: "Business Owner" }
   ];
 
+  React.useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--active');
+          // observer.unobserve(entry.target); // optional: only animate once
+        } else {
+          // entry.target.classList.remove('reveal--active'); // optional: animate again when scrolling back
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="app">
       {/* Navbar */}
@@ -89,23 +113,23 @@ function App() {
       <section id="home" className="hero">
         <div className="hero-inner">
           {/* Trust Badge */}
-          <div className="hero-badge">
+          <div className="hero-badge reveal">
             🏆 Australia's Most Trusted Real Estate Agency
           </div>
 
-          <h1 className="hero-title">
+          <h1 className="hero-title reveal">
             Find Your Perfect <br />
             <span className="hero-highlight">Dream Home</span>
           </h1>
 
-          <p className="hero-subtitle">
+          <p className="hero-subtitle reveal">
             With over 3 years of excellence, EstateHub has helped <strong>500+ families</strong> across
             Australia discover their dream properties. From luxury villas to smart city apartments —
             we make your real estate journey seamless, trusted, and rewarding.
           </p>
 
           {/* Stats Row */}
-          <div className="hero-stats">
+          <div className="hero-stats reveal">
             <div className="hero-stat">
               <span className="hero-stat-num">150+</span>
               <span className="hero-stat-label">Happy Clients</span>
@@ -127,7 +151,7 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-btns">
+          <div className="hero-btns reveal">
             <button
               onClick={() => scrollToSection('properties', true)}
               className="hero-btn-primary">
@@ -143,7 +167,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="about">
+      <section id="about" className="about reveal">
 
         {/* ✅ HEADING alag rakho */}
         <h2 className="about-title">
@@ -163,8 +187,7 @@ function App() {
 
           {/* IMAGE */}
           <div
-            className="about-image"
-            style={{ flex: '1.3', minWidth: '300px', height: '500px' }}
+            className="about-image reveal"
           >
             <img
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
@@ -235,7 +258,7 @@ function App() {
       </section>
 
       {/* Properties Section */}
-      <section id="properties" className="properties">
+      <section id="properties" className="properties reveal">
         <div className="container">
           <h2 className="section-title">Featured Properties</h2>
           <div className="properties-grid">
@@ -301,7 +324,7 @@ function App() {
                 sqft: "2,100"
               }
             ].slice(0, showAll ? 6 : 3).map((prop) => (
-              <div key={prop.id} className="prop-card">
+                <div key={prop.id} className="prop-card reveal">
                 <div
                   className="prop-img"
                   style={{ backgroundImage: `url(${prop.image})` }}
@@ -341,7 +364,7 @@ function App() {
         </div>
       </section>
 
-      <section id="feedback" className="feedback-section">
+      <section id="feedback" className="feedback-section reveal">
 
         {/* Internal CSS */}
         <style>
@@ -453,7 +476,7 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="contact-section">
+      <section id="contact" className="contact-section reveal">
 
         {/* Internal CSS */}
         <style>
@@ -571,7 +594,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer reveal">
 
         {/* Internal CSS */}
         <style>
