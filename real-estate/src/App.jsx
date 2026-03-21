@@ -701,7 +701,7 @@ function App() {
           {/* BOTTOM */}
           <div className="footer-bottom">
             <p>
-              &copy; 2024 EstateHub. All rights reserved.
+              &copy; 2026 Ventoria Global.
             </p>
           </div>
 
