@@ -188,7 +188,7 @@ function App() {
             .problem-card:nth-child(1) .problem-number { color: #0ea5e9; }
             .problem-card:nth-child(2) .problem-number { color: #ec4899; }
             .problem-card:nth-child(3) .problem-number { color: #22c55e; }
-            .problem-card-title { font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 15px; }
+            .problem-card-title { font-size: 1rem; font-weight: 700; color: #0f1522; margin-bottom: 15px; }
             .problem-card-desc { font-size: 0.95rem; color: #475569; line-height: 1.6; }
             @media (max-width: 768px) { .problem-title { font-size: 2rem; } }
           `}
